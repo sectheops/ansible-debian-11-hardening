@@ -32,14 +32,6 @@
     state: started
     masked: no
 
-- name: Firewall - Firewalld SSHD rule
-  ansible.posix.firewalld:
-    port: "{{ sshd_port }}/tcp"
-    permanent: yes
-    immediate: yes
-    state: enabled
-  notify: Restart firewalld
-
 - name: Firewall - Enable public firewalld zone
   ansible.posix.firewalld:
     zone: public
